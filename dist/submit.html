@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#080b10">
+  <meta name="description" content="Ajukan mod ke katalog Nusantara Mod."><title>Ajukan Mod — Nusantara Mod</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/styles.css?v=7">
+</head>
+<body>
+  <header class="site-header"><nav class="nav shell"><a class="brand" href="index.html"><span class="brand-mark">NM</span><span>NUSANTARA <b>MOD</b></span></a><a class="admin-link" href="index.html">← Kembali ke situs</a></nav></header>
+  <main class="submit-page shell">
+    <section class="submit-intro"><span class="eyebrow"><i></i> Karya komunitas</span><h1>Ajukan mod<br><em>buatanmu.</em></h1><p>Isi informasi sejelas mungkin. Tim admin akan meninjau pengajuan sebelum mod tampil di katalog.</p><div class="submit-notes"><span>01 <b>Kredit kreator jelas</b></span><span>02 <b>Link sumber aman</b></span><span>03 <b>Informasi lengkap</b></span></div></section>
+    <section class="submit-form-panel">
+      <div class="form-heading"><span>FORMULIR PENGAJUAN</span><h2>Informasi mod</h2><p>Kolom bertanda * wajib diisi.</p></div>
+      <form id="submit-mod-form" class="public-form">
+        <label>Nama kreator / publisher *<input id="submit-creator" required maxlength="80" placeholder="Nama pembuat atau pihak yang mempublikasikan"></label>
+        <div class="form-row"><label>Judul mod *<input id="submit-title" required maxlength="60" placeholder="Nama mod"></label><label>Nama game *<input id="submit-game" required maxlength="60" placeholder="Game dasar"></label></div>
+        <div class="form-row"><label>Kategori *<select id="submit-category"><option>Adventure</option><option>Racing</option><option>Survival</option><option>Simulator</option><option>Utility</option></select></label><label>Platform *<select id="submit-platform"><option>PC</option><option>Android</option><option>Multi</option></select></label></div>
+        <div class="form-row"><label>Versi *<input id="submit-version" required placeholder="v1.0"></label><label>Ukuran file<input id="submit-size" placeholder="850 MB"></label></div>
+        <label>Deskripsi mod *<textarea id="submit-description" required rows="6" maxlength="1200" placeholder="Jelaskan fitur, perubahan, dan catatan kompatibilitas..."></textarea></label>
+        <label>URL gambar<input id="submit-image" type="url" placeholder="https://.../cover.jpg"></label>
+        <label>URL tutorial YouTube<input id="submit-youtube" type="url" placeholder="https://www.youtube.com/watch?v=..."></label>
+        <label>Link download / sumber *<input id="submit-link" type="url" required placeholder="https://..."></label>
+        <label>Kontak kreator<input id="submit-contact" maxlength="100" placeholder="Email atau akun sosial (opsional)"></label>
+        <label class="agreement"><input id="submit-agreement" type="checkbox" required><span>Saya memiliki hak untuk membagikan mod ini dan informasi yang saya isi benar.</span></label>
+        <button class="button primary wide" type="submit">Kirim pengajuan <span>→</span></button>
+      </form>
+      <div class="submission-success" id="submission-success" hidden><span>✓</span><h2>Pengajuan terkirim</h2><p>Admin akan melihat notifikasi baru di dashboard.</p><a class="button primary" href="index.html#koleksi">Kembali ke katalog</a></div>
+    </section>
+  </main>
+  <footer class="footer detail-footer"><div class="shell footer-bottom"><span>© <span id="year"></span> Nusantara Mod.</span><span>Kreator tetap memegang kredit karyanya.</span></div></footer>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script><script src="assets/data.js?v=9"></script><script src="assets/ads.js?v=9"></script><script src="assets/submit.js?v=9"></script>
+</body>
+</html>

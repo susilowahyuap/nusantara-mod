@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b10">
+  <meta name="description" content="Nusantara Mod — katalog mod dan link game pilihan komunitas Indonesia.">
+  <title>Nusantara Mod — Main Lebih Seru</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css?v=11">
+</head>
+<body>
+  <a class="skip-link" href="#koleksi">Lewati ke koleksi</a>
+  <header class="site-header" id="beranda">
+    <nav class="nav shell" aria-label="Navigasi utama">
+      <a class="brand" href="#beranda" aria-label="Nusantara Mod, beranda">
+        <span class="brand-mark">NM</span>
+        <span>NUSANTARA <b>MOD</b></span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Buka menu">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="#koleksi">Koleksi</a>
+        <a href="#cara-kerja">Cara kerja</a>
+        <a href="submit.html">Ajukan mod</a>
+        <a class="admin-link" href="admin.html">Admin</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero shell">
+      <div class="hero-copy reveal">
+        <span class="eyebrow"><i></i> Portal mod dan game</span>
+        <h1>Temukan mod dan game.<br><em>Mainkan caramu.</em></h1>
+        <p>Jelajahi mod, game, patch, dan karya komunitas dalam satu katalog—lengkap dengan rating pemain, versi, platform, dan panduan instalasi.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#koleksi">Jelajahi koleksi <span>↗</span></a>
+          <a class="button ghost" href="#cara-kerja">Cara mengunduh</a>
+        </div>
+        <div class="trust-row" aria-label="Keunggulan platform">
+          <span><b>✓</b> Link terkurasi</span><span><b>✓</b> Info versi jelas</span><span><b>✓</b> Mobile friendly</span>
+        </div>
+      </div>
+      <div class="hero-visual reveal" id="hero-ranking" aria-label="Peringkat mod dan game terpopuler">
+        <div class="arch arch-back"></div>
+        <div class="hero-ranking-loading">Menyiapkan peringkat…</div>
+        <div class="orbit-dot dot-a"></div><div class="orbit-dot dot-b"></div>
+      </div>
+    </section>
+
+    <section class="stats-band" aria-label="Statistik katalog">
+      <div class="shell stats-grid">
+        <div><strong id="stat-mods">12+</strong><span>Mod &amp; game pilihan</span></div>
+        <div><strong>4</strong><span>Platform</span></div>
+        <div><strong>Gratis</strong><span>Akses katalog</span></div>
+        <div><strong>24/7</strong><span>Bisa dijelajahi</span></div>
+      </div>
+    </section>
+
+    <section class="catalog shell" id="koleksi">
+      <div class="section-heading reveal">
+        <div><span class="eyebrow"><i></i> Katalog pilihan komunitas</span><h2>Mod dan game terbaru</h2></div>
+        <p>Temukan rilisan baru, mod populer, dan game pilihan. Cari berdasarkan judul, kategori, atau platform.</p>
+      </div>
+
+      <div class="catalog-tools reveal">
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <span class="sr-only">Cari mod</span>
+          <input id="search-input" type="search" placeholder="Cari mod atau game..." autocomplete="off">
+        </label>
+        <div class="filter-chips" role="group" aria-label="Filter kategori">
+          <button class="chip active" data-filter="Semua">Semua</button>
+          <button class="chip" data-filter="Adventure">Adventure</button>
+          <button class="chip" data-filter="Racing">Racing</button>
+          <button class="chip" data-filter="Survival">Survival</button>
+          <button class="chip" data-filter="Simulator">Simulator</button>
+        </div>
+      </div>
+
+      <div class="game-grid" id="game-grid" aria-live="polite"></div>
+      <div class="empty-state" id="empty-state" hidden>
+        <span>⌕</span><h3>Belum ada yang cocok</h3><p>Coba kata kunci atau kategori lain.</p>
+      </div>
+      <div class="load-wrap"><button class="button ghost" id="load-more">Tampilkan lebih banyak <span>↓</span></button></div>
+    </section>
+
+    <aside class="ad-slot shell" aria-label="Slot iklan">
+      <div><span>RUANG IKLAN</span><p>Area ini disiapkan untuk Adsterra atau sponsor pilihan.</p></div>
+      <small>970 × 90</small>
+    </aside>
+
+    <section class="how-section" id="cara-kerja">
+      <div class="shell">
+        <div class="section-heading centered reveal"><div><span class="eyebrow"><i></i> Aman dan sederhana</span><h2>Dari katalog ke permainan</h2></div><p>Tiga langkah jelas, tanpa tombol unduh yang menyesatkan.</p></div>
+        <div class="steps-grid">
+          <article class="step-card reveal"><span class="step-number">01</span><div class="step-icon">⌕</div><h3>Pilih mod</h3><p>Baca versi, platform, ukuran, dan catatan kompatibilitas sebelum mengunduh.</p></article>
+          <article class="step-card reveal"><span class="step-number">02</span><div class="step-icon">↗</div><h3>Buka sumber</h3><p>Kami mengarahkan ke halaman kreator atau penyimpanan resmi yang dicantumkan admin.</p></article>
+          <article class="step-card reveal"><span class="step-number">03</span><div class="step-icon">✓</div><h3>Pasang & main</h3><p>Ikuti panduan instalasi. Selalu pindai file dan cadangkan data permainan terlebih dahulu.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="community shell" id="komunitas">
+      <div class="community-panel reveal">
+        <div><span class="eyebrow light"><i></i> Dibangun bersama</span><h2>Punya mod buatanmu sendiri?</h2><p>Ajukan karya untuk ditinjau dan ditampilkan di Nusantara Mod. Kreator tetap memegang kredit dan kendali atas link sumber.</p></div>
+        <a class="button light-button" href="submit.html">Ajukan mod <span>↗</span></a>
+        <div class="pattern" aria-hidden="true"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-grid">
+      <div><a class="brand" href="#beranda"><span class="brand-mark">NM</span><span>NUSANTARA <b>MOD</b></span></a><p>Rumah untuk mod dan karya komunitas game Indonesia.</p></div>
+      <div><b>Jelajahi</b><a href="#koleksi">Koleksi</a><a href="#cara-kerja">Panduan</a><a href="submit.html">Kirim mod</a></div>
+      <div><b>Legal</b><a href="#" data-toast="Halaman kebijakan akan ditambahkan sebelum peluncuran publik.">Kebijakan</a><a href="#" data-toast="Halaman hak cipta akan ditambahkan sebelum peluncuran publik.">Hak cipta</a><a href="#" data-toast="Kontak: halo@nusantaramod.id">Kontak</a></div>
+    </div>
+    <div class="shell footer-bottom"><span>© <span id="year"></span> Nusantara Mod.</span><span>Dibuat untuk komunitas 🇮🇩</span></div>
+  </footer>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="assets/data.js?v=11"></script>
+  <script src="assets/ads.js?v=9"></script>
+  <script src="assets/app.js?v=11"></script>
+</body>
+</html>
