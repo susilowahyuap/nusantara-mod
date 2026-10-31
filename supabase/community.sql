@@ -55,12 +55,38 @@ create table if not exists public.comments (
   id uuid primary key default gen_random_uuid(),
   mod_id text not null references public.mods(id) on delete cascade,
   user_id uuid not null references public.profiles(id) on delete cascade,
+  parent_id uuid,
   body text not null check (char_length(body) between 2 and 800),
   created_at timestamptz not null default now()
 );
 
+alter table public.comments
+add column if not exists parent_id uuid;
+
+create unique index if not exists comments_id_mod_unique_idx
+on public.comments (id, mod_id);
+
+do $$
+begin
+  if not exists (
+    select 1 from pg_constraint
+    where conname = 'comments_parent_same_mod_fk'
+      and conrelid = 'public.comments'::regclass
+  ) then
+    alter table public.comments
+      add constraint comments_parent_same_mod_fk
+      foreign key (parent_id, mod_id)
+      references public.comments (id, mod_id)
+      on delete cascade;
+  end if;
+end
+$$;
+
 create index if not exists comments_mod_created_idx
 on public.comments (mod_id, created_at desc);
+
+create index if not exists comments_parent_created_idx
+on public.comments (parent_id, created_at asc);
 
 create table if not exists public.ratings (
   mod_id text not null references public.mods(id) on delete cascade,

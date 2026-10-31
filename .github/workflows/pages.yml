@@ -25,6 +25,15 @@ jobs:
         uses: actions/checkout@v4
       - name: Configure Pages
         uses: actions/configure-pages@v5
+      - name: Validate website artifact
+        shell: bash
+        run: |
+          test -f dist/index.html
+          test -f dist/detail.html
+          test -f dist/assets/data.js
+          test -f dist/assets/detail.js
+          grep -q "SUPABASE_URL" dist/assets/data.js
+          grep -q "parent_id" dist/assets/data.js
       - name: Upload website
         uses: actions/upload-pages-artifact@v3
         with:

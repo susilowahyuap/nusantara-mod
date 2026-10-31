@@ -58,7 +58,7 @@
   async function getCommunity(modId){
     const [{data:ratings,error:ratingError},{data:comments,error:commentError},{data:{user}}]=await Promise.all([
       client.from('ratings').select('user_id,value').eq('mod_id',modId),
-      client.from('comments').select('id,body,created_at,user_id,profiles(display_name,avatar_url)').eq('mod_id',modId).order('created_at',{ascending:false}),
+      client.from('comments').select('id,parent_id,body,created_at,user_id,profiles(display_name,avatar_url)').eq('mod_id',modId).order('created_at',{ascending:true}),
       client.auth.getUser()
     ]);
     raise(ratingError);raise(commentError);
@@ -66,7 +66,7 @@
     return{user,average:values.length?values.reduce((a,b)=>a+b,0)/values.length:0,count:values.length,userRating:Number((ratings||[]).find(x=>x.user_id===user?.id)?.value||0),comments:comments||[]};
   }
   async function saveRating(modId,value){const user=await getUser();if(!user)throw new Error('Silakan login untuk memberi rating.');const {error}=await client.from('ratings').upsert({mod_id:modId,user_id:user.id,value},{onConflict:'mod_id,user_id'});raise(error)}
-  async function addComment(modId,body){const user=await getUser();if(!user)throw new Error('Silakan login untuk berkomentar.');const {error}=await client.from('comments').insert({mod_id:modId,user_id:user.id,body:String(body).trim()});raise(error)}
+  async function addComment(modId,body,parentId=null){const user=await getUser();if(!user)throw new Error('Silakan login untuk berkomentar.');const payload={mod_id:modId,user_id:user.id,body:String(body).trim()};if(parentId)payload.parent_id=parentId;const {error}=await client.from('comments').insert(payload);raise(error)}
   async function deleteComment(id){const {error}=await client.from('comments').delete().eq('id',id);raise(error)}
 
   window.NMData={client,seed,adminUsername:ADMIN_USERNAME,get:getMods,getMod,upsert:upsertMod,remove:deleteMod,reset:restoreSeed,getSettings,saveSettings,getRanking,getSubmissions,createSubmission,updateSubmission,signIn,isAdmin,signOut,uploadImage,incrementClicks,getUser,signInGoogle,signInEmail,getCommunity,saveRating,addComment,deleteComment,coverClass(cat){return'cover-'+String(cat||'utility').toLowerCase()},youtubeId(url=''){const match=String(url).match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{6,})/i);return match?match[1]:''},detailUrl(id){return`detail.html?id=${encodeURIComponent(id)}`}};
