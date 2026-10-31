@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#080b10">
   <title>Admin — Nusantara Mod</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/styles.css?v=8">
+  <link rel="stylesheet" href="assets/styles.css?v=12">
 </head>
 <body class="admin-body">
   <header class="site-header"><nav class="nav shell"><a class="brand" href="index.html"><span class="brand-mark">NM</span><span>NUSANTARA <b>MOD</b></span></a><a class="admin-link" href="index.html">← Kembali ke situs</a></nav></header>
@@ -55,12 +55,16 @@
         </div>
       </div>
       <label>URL tutorial YouTube<input id="item-youtube" type="url" placeholder="https://www.youtube.com/watch?v=..."></label>
-      <label>Link download<input id="item-link" type="url" required placeholder="https://..."></label>
+      <label>Link download utama<input id="item-link" type="url" required placeholder="https://..."></label>
+      <section class="additional-links-editor" aria-labelledby="additional-links-title">
+        <div class="additional-links-heading"><div><b id="additional-links-title">Mod / file pendukung</b><small>Tambahkan link lain yang dibutuhkan untuk game atau paket mod ini.</small></div><button type="button" id="add-download-link">+ Tambah link</button></div>
+        <div id="additional-download-links" class="additional-download-links"></div>
+      </section>
       <label class="switch-row"><span><b>Status aktif</b><small>Item tampil pada katalog publik</small></span><input id="item-active" type="checkbox" checked></label>
       <button class="button primary wide" type="submit">Simpan ke katalog <span>→</span></button>
     </form>
   </dialog>
   <div class="toast" id="toast" role="status"></div>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script><script src="assets/data.js?v=9"></script><script src="assets/admin.js?v=9"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script><script src="assets/data.js?v=12"></script><script src="assets/admin.js?v=10"></script>
 </body>
 </html>

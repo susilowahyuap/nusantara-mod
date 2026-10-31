@@ -36,6 +36,7 @@ create table if not exists public.mods (
   size text not null default '-',
   description text not null default '',
   download_url text not null default '',
+  download_links jsonb not null default '[]'::jsonb,
   youtube_url text not null default '',
   image_url text not null default '',
   rating numeric(2,1) not null default 0 check (rating >= 0 and rating <= 5),
@@ -45,6 +46,23 @@ create table if not exists public.mods (
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
+
+alter table public.mods
+add column if not exists download_links jsonb not null default '[]'::jsonb;
+
+do $$
+begin
+  if not exists (
+    select 1 from pg_constraint
+    where conname = 'mods_download_links_array_check'
+      and conrelid = 'public.mods'::regclass
+  ) then
+    alter table public.mods
+      add constraint mods_download_links_array_check
+      check (jsonb_typeof(download_links) = 'array');
+  end if;
+end
+$$;
 
 create table if not exists public.submissions (
   id uuid primary key default gen_random_uuid(),

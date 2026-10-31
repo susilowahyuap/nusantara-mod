@@ -16,6 +16,8 @@ Sajikan folder `dist` menggunakan server HTTP lokal, lalu buka `index.html` mela
 
 Untuk proyek Supabase yang sudah aktif, jalankan `supabase/threaded-comments-upgrade.sql` melalui SQL Editor. Instalasi baru cukup menjalankan `supabase/setup.sql`, lalu `supabase/community.sql`. Pengguna harus login melalui Google atau tautan email sebelum dapat memberi rating, menulis komentar, atau membalas komentar.
 
+Untuk mengaktifkan beberapa link mod/file pada satu item katalog, jalankan `supabase/multi-download-links-upgrade.sql`. Link utama tetap disimpan di `download_url`, sedangkan link tambahan disimpan sebagai array JSON pada `download_links`.
+
 Di Supabase Auth, tambahkan URL GitHub Pages produksi dan URL lokal pengembangan ke daftar Redirect URLs agar alur OAuth dan magic link dapat kembali ke halaman detail yang benar.
 
 ## Deployment
