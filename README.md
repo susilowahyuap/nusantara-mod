@@ -18,6 +18,8 @@ Untuk proyek Supabase yang sudah aktif, jalankan `supabase/threaded-comments-upg
 
 Untuk mengaktifkan beberapa link mod/file pada satu item katalog, jalankan `supabase/multi-download-links-upgrade.sql`. Link utama tetap disimpan di `download_url`, sedangkan link tambahan disimpan sebagai array JSON pada `download_links`.
 
+Untuk mengaktifkan konten rincian mod yang terpisah dan statistik pengunjung aktif dua jam, jalankan `supabase/detail-presence-upgrade.sql`. Statistik ini menghitung browser unik yang mengirim heartbeat dalam jendela waktu terbaru, bukan koneksi realtime permanen.
+
 Di Supabase Auth, tambahkan URL GitHub Pages produksi dan URL lokal pengembangan ke daftar Redirect URLs agar alur OAuth dan magic link dapat kembali ke halaman detail yang benar.
 
 ## Deployment

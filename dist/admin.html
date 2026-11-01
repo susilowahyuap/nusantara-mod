@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#080b10">
   <title>Admin — Nusantara Mod</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/styles.css?v=12">
+  <link rel="stylesheet" href="assets/styles.css?v=13">
 </head>
 <body class="admin-body">
   <header class="site-header"><nav class="nav shell"><a class="brand" href="index.html"><span class="brand-mark">NM</span><span>NUSANTARA <b>MOD</b></span></a><a class="admin-link" href="index.html">← Kembali ke situs</a></nav></header>
@@ -23,7 +23,7 @@
 
     <section class="dashboard" id="dashboard" hidden>
       <div class="dashboard-top"><div><span class="eyebrow"><i></i> Dashboard admin</span><h1>Kelola katalog</h1><p>Tambah, sunting, dan periksa pengajuan mod.</p></div><div class="dashboard-actions"><a class="button notification-button" href="#pengajuan">Pengajuan <b id="submission-badge">0</b></a><a class="button ghost" href="monetization.html">Monetisasi</a><button class="button ghost" id="reset-data">Tambahkan contoh</button><button class="button primary" id="add-item">+ Tambah mod</button><button class="icon-button" id="logout" title="Keluar">↪</button></div></div>
-      <div class="admin-stats"><article><span>Total koleksi</span><strong id="admin-total">0</strong><small>Item tersimpan</small></article><article><span>Status aktif</span><strong id="admin-active">0</strong><small>Tampil di katalog</small></article><article><span>Total klik</span><strong id="admin-clicks">0</strong><small>Data online</small></article><article class="submission-stat"><span>Pengajuan baru</span><strong id="admin-pending">0</strong><small>Menunggu tinjauan</small></article></div>
+      <div class="admin-stats"><article><span>Total koleksi</span><strong id="admin-total">0</strong><small>Item tersimpan</small></article><article><span>Status aktif</span><strong id="admin-active">0</strong><small>Tampil di katalog</small></article><article><span>Online 2 jam</span><strong id="admin-online">0</strong><small>Browser aktif terbaru</small></article><article class="submission-stat"><span>Pengajuan baru</span><strong id="admin-pending">0</strong><small>Menunggu tinjauan</small></article></div>
       <section class="admin-panel submissions-panel" id="pengajuan">
         <div class="panel-heading"><div><span class="eyebrow"><i></i> Notifikasi masuk</span><h2>Pengajuan mod</h2></div><a href="submit.html" target="_blank">Buka halaman pengajuan ↗</a></div>
         <div id="submission-list"></div>
@@ -44,7 +44,8 @@
       <label>Nama kreator / publisher<input id="item-creator" required maxlength="80" placeholder="Nama pembuat atau pihak yang mempublikasikan"></label>
       <div class="form-row"><label>Kategori<select id="item-category"><option>Adventure</option><option>Racing</option><option>Survival</option><option>Simulator</option><option>Utility</option></select></label><label>Platform<select id="item-platform"><option>PC</option><option>Android</option><option>Multi</option></select></label></div>
       <div class="form-row"><label>Versi<input id="item-version" required placeholder="v1.0"></label><label>Ukuran<input id="item-size" required placeholder="850 MB"></label></div>
-      <label>Deskripsi<textarea id="item-description" required rows="5" maxlength="1200" placeholder="Jelaskan isi mod, fitur, dan catatan penting..."></textarea></label>
+      <label>Deskripsi singkat<textarea id="item-description" required rows="4" maxlength="1200" placeholder="Ringkasan singkat yang tampil pada hero dan kartu katalog."></textarea></label>
+      <label>Isi / fitur mod<textarea id="item-details" rows="8" maxlength="5000" placeholder="Jelaskan fitur, perubahan, isi paket, kompatibilitas, atau informasi khusus tanpa mengulang deskripsi singkat."></textarea></label>
       <div class="image-editor">
         <div class="image-preview" id="image-preview"><span>Preview gambar 16:10</span></div>
         <div class="image-fields">
@@ -65,6 +66,6 @@
     </form>
   </dialog>
   <div class="toast" id="toast" role="status"></div>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script><script src="assets/data.js?v=12"></script><script src="assets/admin.js?v=10"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script><script src="assets/data.js?v=13"></script><script src="assets/admin.js?v=11"></script>
 </body>
 </html>
