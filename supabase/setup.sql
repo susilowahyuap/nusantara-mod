@@ -36,6 +36,8 @@ create table if not exists public.mods (
   size text not null default '-',
   description text not null default '',
   details text not null default '',
+  install_instructions text not null default '',
+  download_label text not null default 'File utama',
   download_url text not null default '',
   download_links jsonb not null default '[]'::jsonb,
   youtube_url text not null default '',
@@ -53,6 +55,12 @@ add column if not exists download_links jsonb not null default '[]'::jsonb;
 
 alter table public.mods
 add column if not exists details text not null default '';
+
+alter table public.mods
+add column if not exists install_instructions text not null default '';
+
+alter table public.mods
+add column if not exists download_label text not null default 'File utama';
 
 do $$
 begin

@@ -46,6 +46,7 @@
       <div class="form-row"><label>Versi<input id="item-version" required placeholder="v1.0"></label><label>Ukuran<input id="item-size" required placeholder="850 MB"></label></div>
       <label>Deskripsi singkat<textarea id="item-description" required rows="4" maxlength="1200" placeholder="Ringkasan singkat yang tampil pada hero dan kartu katalog."></textarea></label>
       <label>Isi / fitur mod<textarea id="item-details" rows="8" maxlength="5000" placeholder="Jelaskan fitur, perubahan, isi paket, kompatibilitas, atau informasi khusus tanpa mengulang deskripsi singkat."></textarea></label>
+      <label>Cara instal<textarea id="item-install-instructions" rows="6" maxlength="3000" placeholder="Tulis satu langkah per baris. Contoh:&#10;Ekstrak file utama&#10;Salin folder mod ke direktori game&#10;Aktifkan mod dari menu game"></textarea></label>
       <div class="image-editor">
         <div class="image-preview" id="image-preview"><span>Preview gambar 16:10</span></div>
         <div class="image-fields">
@@ -56,7 +57,7 @@
         </div>
       </div>
       <label>URL tutorial YouTube<input id="item-youtube" type="url" placeholder="https://www.youtube.com/watch?v=..."></label>
-      <label>Link download utama<input id="item-link" type="url" required placeholder="https://..."></label>
+      <div class="form-row"><label>Nama file utama<input id="item-download-label" required maxlength="100" placeholder="Contoh: Mod Bahasa Indonesia v1.0"></label><label>Link download utama<input id="item-link" type="url" required placeholder="https://..."></label></div>
       <section class="additional-links-editor" aria-labelledby="additional-links-title">
         <div class="additional-links-heading"><div><b id="additional-links-title">Mod / file pendukung</b><small>Tambahkan link lain yang dibutuhkan untuk game atau paket mod ini.</small></div><button type="button" id="add-download-link">+ Tambah link</button></div>
         <div id="additional-download-links" class="additional-download-links"></div>
@@ -66,6 +67,6 @@
     </form>
   </dialog>
   <div class="toast" id="toast" role="status"></div>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script><script src="assets/data.js?v=13"></script><script src="assets/admin.js?v=11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script><script src="assets/data.js?v=14"></script><script src="assets/admin.js?v=12"></script>
 </body>
 </html>

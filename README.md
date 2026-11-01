@@ -20,6 +20,8 @@ Untuk mengaktifkan beberapa link mod/file pada satu item katalog, jalankan `supa
 
 Untuk mengaktifkan konten rincian mod yang terpisah dan statistik pengunjung aktif dua jam, jalankan `supabase/detail-presence-upgrade.sql`. Statistik ini menghitung browser unik yang mengirim heartbeat dalam jendela waktu terbaru, bukan koneksi realtime permanen.
 
+Untuk menampilkan nama dan jumlah file serta panduan instalasi yang dapat diedit, jalankan `supabase/file-installation-upgrade.sql`. Nama file utama diisi terpisah, sedangkan nama file pendukung memakai label pada daftar link tambahan. Tulis satu langkah instalasi per baris dari editor katalog.
+
 Di Supabase Auth, tambahkan URL GitHub Pages produksi dan URL lokal pengembangan ke daftar Redirect URLs agar alur OAuth dan magic link dapat kembali ke halaman detail yang benar.
 
 ## Deployment

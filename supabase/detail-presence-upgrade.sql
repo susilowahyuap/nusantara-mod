@@ -5,6 +5,12 @@
 alter table public.mods
 add column if not exists details text not null default '';
 
+alter table public.mods
+add column if not exists install_instructions text not null default '';
+
+alter table public.mods
+add column if not exists download_label text not null default 'File utama';
+
 create table if not exists public.visitor_presence (
   session_id uuid primary key,
   last_seen timestamptz not null default now()
