@@ -21,7 +21,7 @@ function render(item){const detailCopy=item.details?`<div class="detail-rich-cop
   <section class="tutorial-section" id="tutorial"><div class="section-heading"><div><span class="eyebrow"><i></i> Panduan video</span><h2>Cara pemasangan</h2></div><p>Tonton sampai selesai sebelum mengubah file permainan.</p></div>${tutorial(item)}</section>
   <section class="download-panel" id="download"><div><span class="eyebrow light"><i></i> Siap memasang?</span><h2>Download ${esc(item.title)}</h2><p>Baca tips singkat dan tunggu link sumber disiapkan.</p></div><div class="download-actions"><a class="button light-button" href="download.html?id=${encodeURIComponent(item.id)}">Siapkan link download <span>→</span></a><div class="rating-mini"><span>Rating pemain</span><div class="rating-stars" id="rating-stars">${ratingStars()}</div><small id="rating-summary">Belum ada rating</small></div></div></section>${communityMarkup()}`}
 
-async function loadDetailAd(){const host=document.querySelector('#detail-page-ad');try{const settings=await NMData.getSettings();window.NMAds?.renderPageAd(host,settings.ads?.detail)}catch{if(host)host.hidden=true}}
+async function loadDetailAd(){const host=document.querySelector('#detail-page-ad');try{const settings=await NMData.getSettings();window.NMAds?.renderPageAd(host,settings.ads?.detail);bindDownloadClickAd(settings.downloadClickAd)}catch{if(host)host.hidden=true}}
 
 function profileOf(comment){const value=comment.profiles;return Array.isArray(value)?value[0]||{}:value||{}}
 function commentTree(comments){const nodes=new Map(comments.map(comment=>[comment.id,{...comment,replies:[]}])),roots=[];nodes.forEach(comment=>{const parent=comment.parent_id&&nodes.get(comment.parent_id);if(parent&&parent.id!==comment.id)parent.replies.push(comment);else roots.push(comment)});roots.sort((a,b)=>new Date(b.created_at)-new Date(a.created_at));nodes.forEach(comment=>comment.replies.sort((a,b)=>new Date(a.created_at)-new Date(b.created_at)));return roots}
@@ -33,3 +33,17 @@ function bindCommunity(){document.querySelector('#rating-stars').addEventListene
 
 document.querySelector('#year').textContent=new Date().getFullYear();
 (async()=>{if(!id)return notFound();try{const item=await NMData.getMod(id);if(!item)return notFound();render(item);bindTutorialPlayer();bindCommunity();await Promise.all([loadCommunity(),loadDetailAd()])}catch(error){notFound('Data mod belum dapat dimuat. Periksa koneksi lalu coba lagi.')}})();
+function bindDownloadClickAd(config){
+  if(!config?.active)return;
+  let url;try{url=new URL(config.url)}catch{return}
+  if(url.protocol!=='https:'||url.username||url.password)return;
+  const link=document.querySelector('#download .download-actions a');
+  if(!link)return;
+  const note=document.createElement('small');
+  note.textContent='Membuka iklan di tab baru; download dilanjutkan di tab ini.';
+  link.insertAdjacentElement('afterend',note);
+  link.addEventListener('click',event=>{
+    if(event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
+    try{window.open(url.href,'_blank','noopener,noreferrer')}catch{}
+  });
+}
