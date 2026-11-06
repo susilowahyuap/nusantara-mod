@@ -39,11 +39,8 @@ function bindDownloadClickAd(config){
   if(url.protocol!=='https:'||url.username||url.password)return;
   const link=document.querySelector('#download .download-actions a');
   if(!link)return;
-  const note=document.createElement('small');
-  note.textContent='Membuka iklan di tab baru; download dilanjutkan di tab ini.';
-  link.insertAdjacentElement('afterend',note);
-  link.addEventListener('click',event=>{
-    if(event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
-    try{window.open(url.href,'_blank','noopener,noreferrer')}catch{}
-  });
+  const ad=document.createElement('a');
+  ad.href=url.href;ad.target='_blank';ad.rel='noopener noreferrer sponsored';
+  ad.textContent='Iklan: buka di tab baru ↗';
+  link.insertAdjacentElement('afterend',ad);
 }
