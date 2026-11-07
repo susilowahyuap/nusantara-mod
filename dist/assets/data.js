@@ -21,6 +21,7 @@
     {id:'nm-009',title:'Garuda Performance',creator:'Nusantara Mod',category:'Utility',platform:'PC',version:'v2.2',size:'32 MB',description:'Preset performa ringan untuk membantu permainan berjalan lebih stabil pada perangkat menengah.',link:'https://example.com',youtube:'',image:'',rating:4.6,active:true,clicks:108}
   ];
   const defaultAds={
+    home:{active:false,label:'Iklan beranda',mode:'banner',size:'728x90',image:'',url:'',code:''},
     left:{active:false,label:'Sponsor kiri',mode:'banner',size:'160x300',image:'',url:'',code:''},right:{active:false,label:'Sponsor kanan',mode:'banner',size:'160x300',image:'',url:'',code:''},detail:{active:false,label:'Iklan detail mod',mode:'banner',size:'728x90',image:'',url:'',code:''},top:{active:false,label:'Iklan atas',mode:'banner',size:'728x90',image:'',url:'',code:''},inline1:{active:false,label:'Iklan artikel 1',mode:'banner',size:'300x250',image:'',url:'',code:''},inline2:{active:false,label:'Iklan artikel 2',mode:'banner',size:'300x250',image:'',url:'',code:''},bottom:{active:false,label:'Iklan bawah',mode:'banner',size:'728x90',image:'',url:'',code:''}
   };
   const normalizeDownloadLinks=value=>(Array.isArray(value)?value:[]).map(link=>({label:String(link?.label||'').trim(),url:String(link?.url||'').trim()})).filter(link=>link.label&&/^https?:\/\//i.test(link.url)).slice(0,20);
